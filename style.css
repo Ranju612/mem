@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+header {
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+nav a:hover { text-decoration: underline; }
+
+main {
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+canvas {
+    border: 2px solid #000;
+    display: block;
+    margin: 20px auto;
+    background: rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 2;
+}
+
+#timerDisplay {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.mobile-controls button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}
+.mobile-controls button:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+/* Ocean background animation */
+.ocean {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:1;
+    overflow:hidden;
+    background: linear-gradient(#1e3c72, #2a5298);
+}
+
+.wave {
+    position: absolute;
+    width:200%;
+    height:200%;
+    background: rgba(255,255,255,0.05);
+    border-radius: 43%;
+    animation: waveMove 20s linear infinite;
+}
+.wave:nth-child(2) { animation-duration: 25s; top: 20%; left: -10%; }
+.wave:nth-child(3) { animation-duration: 30s; top: 40%; left: -5%; }
+
+@keyframes waveMove {
+    0% { transform: translateX(0) translateY(0) rotate(0deg);}
+    50% { transform: translateX(-50px) translateY(20px) rotate(10deg);}
+    100% { transform: translateX(0) translateY(0) rotate(0deg);}
+}
+
+/* Responsive */
+@media (max-width: 600px){
+    canvas { width: 95%; height: auto; }
+    .mobile-controls button { width: 20%; margin: 3px; }
+}
